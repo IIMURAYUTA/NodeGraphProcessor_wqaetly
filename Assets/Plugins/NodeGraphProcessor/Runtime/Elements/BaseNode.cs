@@ -6,6 +6,7 @@ using System.Reflection;
 using Unity.Jobs;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 
 namespace GraphProcessor
 {
@@ -735,9 +736,24 @@ namespace GraphProcessor
 		/// <returns>an enumerable of node</returns>
 		public IEnumerable< BaseNode > GetInputNodes()
 		{
+			if (inputPorts == null)
+			{
+				Debug.LogError("inputPorts is null: "+this.GetType().GetNiceName());
+				//return Enumerable.Empty<BaseNode>();
+				yield break;
+			}
+				
+			
 			foreach (var port in inputPorts)
+			{
+				if (port == null)
+					Debug.Log("なんで+");
+				
 				foreach (var edge in port.GetEdges())
+				{
 					yield return edge.outputNode;
+				}
+			}
 		}
 
 		/// <summary>
@@ -746,6 +762,13 @@ namespace GraphProcessor
 		/// <returns>an enumerable of node</returns>
 		public IEnumerable< BaseNode > GetOutputNodes()
 		{
+			if (outputPorts == null)
+			{
+				Debug.LogError("outputPorts is null: "+this.GetType().GetNiceName());
+				//return Enumerable.Empty<BaseNode>();
+				yield break;
+			}
+			
 			foreach (var port in outputPorts)
 				foreach (var edge in port.GetEdges())
 					yield return edge.inputNode;
@@ -824,6 +847,7 @@ namespace GraphProcessor
 		
 		/// <summary>
 		/// 获取此节点指定端口输入值，默认只获取第一个与之相连的端口，如果要获取其对应的多个端口，请使用TryGetAllInputValues
+		/// このノードの指定されたポートの入力値を取得します。デフォルトでは、このポートに接続されている最初のポートの値のみを取得します。複数の対応するポートの値を取得するには、TryGetAllInputValues を使用してください。
 		/// </summary>
 		/// <param name="fieldName"></param>
 		/// <param name="value"></param>
@@ -834,15 +858,16 @@ namespace GraphProcessor
 		}
 
 		/// <summary>
-		/// 需要由Node重写的方法，用于获取Output的值
+		/// Outputの値を取得するためにNodeによりオーバーライドされるべきメソッド
 		/// </summary>
-		/// <param name="outputPort">output端口</param>
-		/// <param name="inputPort">与上面的output端口相连的input端口</param>
-		/// <param name="value">要返回的值</param>
+		/// <param name="outputPort">outputポート</param>
+		/// <param name="inputPort">上記のoutputポートに接続されるinputポート</param>
+		/// <param name="value">返されるべき値</param>
 		/// <typeparam name="T"></typeparam>
 		public virtual void TryGetOutputValue<T>(NodePort outputPort, NodePort inputPort, ref T value)
 		{
-			Debug.LogError($"{this.GetType()} 未重写TryGetOutputValue函数，将无法正确获取输出值");
+			//Debug.LogError($"{this.GetType()} 未重写TryGetOutputValue函数，将无法正确获取输出值");
+			Debug.LogError($"{this.GetType()} TryGetOutputValue関数がオーバーライドされていない場合、出力値を正しく取得できません。");
 		}
 
 		/// <summary>

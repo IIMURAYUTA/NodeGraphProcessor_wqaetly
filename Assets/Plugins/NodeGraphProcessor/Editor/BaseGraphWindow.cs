@@ -99,10 +99,14 @@ namespace GraphProcessor
 			rootView.styleSheets.Add(Resources.Load<StyleSheet>(graphWindowStyle));
 		}
 
+		/// この関数が呼び出されるのは2つのケースのみです
+		/// 1. GraphEditorWindowを開く時（初めて開く場合または既に開いている状態でGraphAssetを変更する場合）
+		/// 2. コンパイル/PlayModeに入ることでGraphEditorWindowが再読み込みされた時
+		
 		/// <summary>
-		/// 只有两种情况会调用到这个函数
-		/// 1.打开GraphEditorWindow（初次打开或者在已经打开的基础上更换GraphAsset）
-		/// 2.编译/进入PlayMode而导致的GraphEditorWindow重载
+		/// この関数が呼び出されるのは以下の2つの場合のみです
+		/// 1.GraphEditorWindowを開いたとき（初めて開く場合または既に開いている状態でGraphAssetを変更した場合）
+		/// 2.コンパイル/PlayModeに入ることによってGraphEditorWindowが再読み込みされる場合
 		/// </summary>
 		/// <param name="graph"></param>
 		public void InitializeGraph(BaseGraph graph)

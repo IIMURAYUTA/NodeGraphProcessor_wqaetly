@@ -40,7 +40,76 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|GraphProcessor.Group, com.alelievr.NodeGraphProcessor.Runtime
+    - Name: title
+      Entry: 1
+      Data: Create Group
+    - Name: color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
       Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0.3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Rect, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -82.46566
+    - Name: 
+      Entry: 4
+      Data: 333.885254
+    - Name: 
+      Entry: 4
+      Data: 400
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: size
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 400
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: innerNodeGUIDs
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -50,7 +119,7 @@ MonoBehaviour:
   serializedNodes: []
   edges: []
   stackNodes:
-  - id: 0
+  - rid: 0
   pinnedElements:
   - position:
       serializedVersion: 2
@@ -78,7 +147,7 @@ MonoBehaviour:
       y: 426
       width: 294
       height: 345
-    opened: 1
+    opened: 0
     editorType:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -93,7 +162,7 @@ MonoBehaviour:
       serializedType: GraphProcessor.ProcessorView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exposedParameters:
-  - id: 1
+  - rid: 1
   serializedParameterList:
   - guid: 
     name: 
@@ -104,7 +173,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -114,7 +183,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -124,7 +193,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -134,7 +203,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -144,7 +213,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -154,7 +223,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -164,7 +233,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -174,7 +243,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   - guid: 
     name: 
     type: 
@@ -184,7 +253,7 @@ MonoBehaviour:
       serializedValue: 
     input: 1
     settings:
-      id: 2
+      rid: -2
   stickyNotes:
   - position:
       serializedVersion: 2
@@ -202,11 +271,14 @@ MonoBehaviour:
       height: 101
     title: New Sticky Note
     content: Write your text here
-  position: {x: 236, y: 261, z: 0}
-  scale: {x: 0.43232757, y: 0.43232757, z: 1}
+  position: {x: 292, y: 141, z: 0}
+  scale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 0
       type: {class: BaseStackNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         position: {x: 914.0975, y: 6.5799994}
@@ -214,7 +286,7 @@ MonoBehaviour:
         acceptDrop: 1
         acceptNewNode: 1
         nodeGUIDs: []
-    00000001:
+    - rid: 1
       type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: eb80df62-f248-4ec9-afd4-f9ed08bfaa16
@@ -226,11 +298,9 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 3
+          rid: 3
         val: 0
-    00000002:
-      type: {class: , ns: , asm: }
-    00000003:
+    - rid: 3
       type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0

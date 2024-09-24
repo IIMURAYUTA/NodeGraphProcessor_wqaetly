@@ -714,19 +714,30 @@ MonoBehaviour:
       y: 556
       width: 322
       height: 324
-    opened: 1
+    opened: 0
     editorType:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: ConditionalProcessorView, NodeGraphProcessor.Examples, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   exposedParameters:
-  - id: 0
+  - rid: 0
   serializedParameterList: []
   stickyNotes: []
-  position: {x: 916, y: -179, z: 0}
+  position: {x: 749, y: -302, z: 0}
   scale: {x: 1.15, y: 1.15, z: 1}
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: 0
       type: {class: AnimationCurveParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: f6785e8e-3693-4585-a06a-b3da7c8f1491
@@ -738,14 +749,14 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 1
+          rid: 1
         val:
           serializedVersion: 2
           m_Curve: []
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    00000001:
+    - rid: 1
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0

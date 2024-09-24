@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Examples.Editor._05_All;
 using UnityEngine;
@@ -30,6 +29,8 @@ public abstract class UniversalGraphWindow : BaseGraphWindow
 
         m_MiniMap = new MiniMap() {anchored = true};
         graphView.Add(m_MiniMap);
+        
+        //Debug.LogError("UniversalGraphWindow.InitializeWindow");
         
         m_ToolbarView = new UniversalToolbarView(graphView, m_MiniMap, graph);
         graphView.Add(m_ToolbarView);

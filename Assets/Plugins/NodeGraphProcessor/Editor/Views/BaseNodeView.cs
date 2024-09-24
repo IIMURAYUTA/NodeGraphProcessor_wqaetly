@@ -187,7 +187,63 @@ namespace GraphProcessor
 			// Add renaming capability
 			if ((capabilities & Capabilities.Renamable) != 0)
 				SetupRenamableTitle();
+			
+			//俺
+			//これいれるとどうにもあかｎ
+			//this.RegisterCallback<MouseDownEvent>(OnMouseDown);
+			//this.RegisterCallback<MouseMoveEvent>(OnMouseMove);
+			//this.RegisterCallback<MouseUpEvent>(OnMouseUp);
 		}
+
+		#region --------------俺--------------
+		
+		//private const float ResizeMargin = 1000f;
+		private static readonly (int min, int max) WidthRange = (10,1000);
+		private static readonly (int min, int max) HeightRange = (10,1000);
+		private bool _isResizing = false;
+		private Vector2 _originalSize;
+		private Vector2 _originalMousePosition;
+
+		private void OnMouseDown(MouseDownEvent evt)
+		{
+			Vector2 localMousePosition = this.WorldToLocal(evt.mousePosition);
+
+			//if (IsInResizeMargin(localMousePosition))
+			{
+				_isResizing = true;
+				_originalSize = new Vector2(resolvedStyle.width, resolvedStyle.height);
+				_originalMousePosition = evt.mousePosition;
+				evt.StopPropagation();
+			}
+		}
+
+		private void OnMouseMove(MouseMoveEvent evt)
+		{
+			if (_isResizing)
+			{
+				Vector2 delta = evt.mousePosition - _originalMousePosition;
+				float newWidth = Mathf.Max(_originalSize.x + delta.x, style.minWidth.value.value);
+				float newHeight = Mathf.Max(_originalSize.y + delta.y, style.minHeight.value.value);
+				style.width = Mathf.Clamp(newWidth, WidthRange.min, WidthRange.max);
+				style.height = Mathf.Clamp(newHeight, HeightRange.min, HeightRange.max);
+				evt.StopPropagation();
+			}
+		}
+
+		private void OnMouseUp(MouseUpEvent evt)
+		{
+			_isResizing = false;
+			evt.StopPropagation();
+		}
+
+		//private bool IsInResizeMargin(Vector2 localMousePosition)
+		//{
+		//	Rect rect = new Rect(Vector2.zero, layout.size);
+		//	Rect resizeRect = new Rect(rect.xMax - ResizeMargin, rect.yMax - ResizeMargin, ResizeMargin, ResizeMargin);
+		//	return resizeRect.Contains(localMousePosition);
+		//}
+
+		#endregion -------------------------------
 
 		void SetupRenamableTitle()
 		{
@@ -639,6 +695,11 @@ namespace GraphProcessor
 		Dictionary<string, List<(object value, VisualElement target)>> visibleConditions = new Dictionary<string, List<(object value, VisualElement target)>>();
 		Dictionary<string, VisualElement>  hideElementIfConnected = new Dictionary<string, VisualElement>();
 		Dictionary<FieldInfo, List<VisualElement>> fieldControlsMap = new Dictionary<FieldInfo, List<VisualElement>>();
+
+		//public BaseNodeView(Vector2 originalMousePosition)
+		//{
+		//	this._originalMousePosition = originalMousePosition;
+		//}
 
 		protected void AddInputContainer()
 		{

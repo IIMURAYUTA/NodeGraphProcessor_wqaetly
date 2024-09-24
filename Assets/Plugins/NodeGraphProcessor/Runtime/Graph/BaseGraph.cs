@@ -162,7 +162,14 @@ namespace GraphProcessor
 		
 		public HashSet< BaseNode >		graphOutputs { get; private set; } = new HashSet<BaseNode>();
 
-        public void OnGraphEnable()
+		protected virtual void OnEnabled(){}
+
+		public void OnEnable()
+		{
+			OnEnabled();
+		}
+
+		public void OnGraphEnable()
         {
 			if (isEnabled)
 				return;

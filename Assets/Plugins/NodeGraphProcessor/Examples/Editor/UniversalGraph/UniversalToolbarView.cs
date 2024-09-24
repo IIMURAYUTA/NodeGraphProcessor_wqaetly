@@ -11,6 +11,8 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+
 namespace Examples.Editor._05_All
 {
     public class UniversalToolbarView : ToolbarView
@@ -75,7 +77,9 @@ namespace Examples.Editor._05_All
 
             //AddSeparator(5);
 
-            AddToggle(new GUIContent(m_ConditionalToggleIcon, "开/关运行的面板"),
+            //koko;
+            
+            AddToggle(new GUIContent(m_ConditionalToggleIcon, "DosukoiConditional"),
                 graphView.GetPinnedElementStatus<ConditionalProcessorView>() !=
                 DropdownMenuAction.Status.Hidden, (v) => graphView.ToggleView<ConditionalProcessorView>());
 
